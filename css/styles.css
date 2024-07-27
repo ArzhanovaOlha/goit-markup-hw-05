@@ -485,21 +485,23 @@ ul {
   pointer-events: initial;
   visibility: visible;
   transition-delay: 0s;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.3);
-  max-width: 408px;
+  width: 408px;
   min-height: 584px;
-  padding: 64px 24px 24px;
-  background: #ffffff;
+  padding: 72px 24px 24px;
+  background: #fcfcfc;
   border-radius: 4px;
   opacity: 0;
-  transition: 600ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: transform, opacity;
   transition-delay: 0s;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2); 
 }
 .backdrop.is-open .modal {
   transform: translate(-50%, -50%) scale(1);
@@ -515,21 +517,27 @@ ul {
   justify-content: center;
   padding: 0;
   background-color: #E7E9FC;
-  border-radius: 24px;
+  border-radius: 50%;
   height: 24px;
   width: 24px;
   border: 1px solid rgba(0,0,0,0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .close .icon-svg {
   fill: #2E2F42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .close:hover {
-  background-color: #404BBF;
-  border: 1px solid #404BBF;
+  background-color: #404bbf;
+  border: none;
 }
-.close:hover .icon-svg {
+.close:focus {
+  border: none;
+}
+.close:hover .icon-svg,.close:focus .icon-svg {
   fill: #ffffff;
 }
+
 .modal-caption {
   max-width: 360px;
   margin-bottom: 16px;
@@ -538,30 +546,37 @@ ul {
   line-height: 1.5;
   letter-spacing: 0.02;
   color: #2E2F42;
+  text-align: center; 
 }
 .form-field {
-  margin-bottom: 18px;
+  margin-bottom: 8px;
+}
+.form-field-comment {
+  margin-bottom: 16px;
 }
 .form .label, .form-desc {
   display: block;
   margin-bottom: 4px;
-  letter-spacing: 0.04;
-  line-height: 1.16;
+  letter-spacing: 0.04em;
+  line-height: 1.17;
   color: #8E8F99;
   font-size: 12px;
 }
 .field-wrapper {
   position: relative;
 }
+
 .form-input {
   display: block;
   width: 100%;
   height: 40px;
-  padding: 8px 32px;
+  padding: 8px 38px;
   line-height: 1.71;
   border-radius: 4px;
   border: 1px solid rgb(46,47,66,0.4);
   outline: transparent;
+  background-color: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-input:focus {
   border-color: #4D5AE5;
@@ -572,6 +587,7 @@ ul {
   left: 16px;
   transform: translateY(-50%);
   fill: #2E2F42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 .form-input:focus + .icon-svg {
   fill: #4D5AE5;
@@ -579,21 +595,24 @@ ul {
 
 .form-comment {
   display: block;
-
   width: 100%;
-  height: 137px;
-  padding: 8px 16px;
+  height: 120px;
+  padding: 8px 16px; 
   font-size: 12px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
+  line-height: 1.17;
   border-radius: 4px;
-  border: 1px solid rgb(46,47,66,0.4);
+  color: rgba(46, 47, 66, 0.4);
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: transparent;
   outline: transparent;
   resize: none;
-  transition: var(--anim-fast);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: border-color;
 }
 .form-comment:focus {
-  border-color: rgb(var(--accent-cl));
+  border-color: #4D5AE5; 
 }
 .form-comment::placeholder {
   color: rgb(46,47,66,0.4);
@@ -607,13 +626,17 @@ ul {
   margin-right: 8px;
   border-radius: 2px;
   border: 1px solid rgb(46,47,66,0.4);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-checkbox .icon-svg {
-  fill: #ffffff;
+  fill: transparent;
 }
 input[type='checkbox']:checked + .form-desc > .form-checkbox {
-  border-color: #404BBF;
+  border: none; 
   background-color: #404BBF;
+}
+input[type='checkbox']:checked + .form-desc  > .form-checkbox > .icon-svg {
+  fill: #ffffff;
 }
 .visually-hidden {
   position: absolute;
@@ -626,5 +649,11 @@ input[type='checkbox']:checked + .form-desc > .form-checkbox {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   overflow: hidden;
+}
+.form-agreement {
+  margin-bottom: 24px;
+}
+.form-link {
+  color: #4d5ae5; 
 }
 
