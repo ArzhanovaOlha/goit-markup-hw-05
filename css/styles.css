@@ -539,7 +539,7 @@ ul {
 .close:focus {
   border: none;
 }
-.close:hover .icon-svg,.close:focus .icon-svg {
+.close:hover > .icon-svg,.close:focus > .icon-svg {
   fill: #ffffff;
 }
 
@@ -617,7 +617,7 @@ ul {
   transition-property: border-color;
 }
 .form-comment:focus {
-  border-color: #4D5AE5; 
+  border-color: #4D5AE5;
 }
 .form-comment::placeholder {
   color: rgb(46,47,66,0.4);
