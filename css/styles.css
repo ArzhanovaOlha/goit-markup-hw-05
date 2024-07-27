@@ -545,7 +545,7 @@ ul {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  letter-spacing: 0.02;
+  letter-spacing: 0.02em;
   color: #2E2F42;
   text-align: center; 
 }
@@ -605,7 +605,6 @@ ul {
   border-radius: 4px;
   color: rgba(46, 47, 66, 0.4);
   border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 4px;
   background-color: transparent;
   outline: transparent;
   resize: none;
@@ -633,9 +632,9 @@ ul {
   fill: transparent;
 }
 .checkbox:checked + .form-desc > .form-checkbox {
-  border: none; 
   background-color: #404BBF;
-  
+  border: none; 
+  fill: #F4F4FD;
 }
 .checkbox:checked + .form-desc > .form-checkbox > .icon-svg {
   fill: #F4F4FD;
